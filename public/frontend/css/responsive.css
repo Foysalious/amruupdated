@@ -171,7 +171,7 @@
 }
 .signup-box {
     left: 35px;
-    top: 15px%; 
+    top: 15px; 
     transform: unset; 
     width: 90%;
     border-radius: unset;
@@ -202,7 +202,12 @@
 	width: 100%!important;
 }
 .cart-number {
-	left: 15px;
+	right: 0;
+	top: -10px;
+	left: unset;
+}
+.topbar-mob-img img{
+	width: 25%;
 }
 }
 
@@ -288,9 +293,7 @@
     padding-bottom: 35px;
 }
 .topbar-mob-img img{
-	width: 35%;
-	display: block;
-    margin: 0 auto;
+	width: 25%;
 }
 .product-hover-item p {
     left: 0px;
@@ -421,6 +424,11 @@
 }
 .latest-product-carousel.owl-drag .owl-item {
     padding: 0 20px;
+}
+.cart-number {
+	right: 0;
+	top: -10px;
+	left: unset;
 }
 }
 

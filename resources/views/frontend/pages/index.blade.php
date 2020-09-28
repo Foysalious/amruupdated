@@ -217,7 +217,7 @@
 							</div>
 
 							<!-- main thumbnail -->
-						<a href="{{route('productDetails',$product->slug)}}">
+							<a href="{{route('productDetails',$product->slug)}}">
 								<img src="{{ asset('images/product/'.$product->images[0]->image) }}" class="img-fluid">
 							</a>
 							<!-- main thumbnail -->
@@ -235,9 +235,15 @@
 							<!-- go product details -->
 							
 							<div class="product-item-cart">
-								<a href="">
+							<button data-id="{{ $product->id }}" data-image="{{ $product->images[0]->image }}" data-name="{{ $product->name }}" 
+								@if( $product->offer_price == NULL )
+								data-price="{{ $product->regular_price }}"
+								@else
+								data-price="{{ $product->offer_price }}"
+								@endif 
+								id="addToCart">
 									<img src="{{ asset('frontend/images/cart-bag.png') }}"> add to bag
-								</a>
+								</button>
 							</div>
 							<ul>
 								<li><i class="fas fa-star"></i></li>

@@ -46,7 +46,7 @@
 
 
 <!-- navbar drop down for mob start -->
-<section class="menu-dropdown-mob for-mob">
+<section class="menu-dropdown-mob">
 
 	<!-- fixed menu start -->
 	<div class="fixed-menu-mob">

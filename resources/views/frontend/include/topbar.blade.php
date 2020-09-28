@@ -30,30 +30,79 @@
 			<!-- search option end -->
 
 			<!-- cart wishlist start -->
-			<div class="col-md-3">
+			<div class="col-md-3" style="position: relative">
 				<div class="cart-wishlist">
 					<ul>
 
-						<li class="cart">
-							<a href="">
-								<img src="{{ asset('frontend/images/cart.png') }}" class="img-fluid">
+						<li class="cart-pc" id="cart-pc" onmouseover="showCart()" onmouseout="hideCart()" >
+							<img src="{{ asset('frontend/images/cart.png') }}" class="img-fluid">
 
-								<!-- cart number start -->
-								<div class="cart-number">
-									<p>5</p>
-								</div>
-								<!-- cart number end-->
-
-							</a>
+							<!-- cart number start -->
+							<div class="cart-number">
+								<p>5</p>
+							</div>
+							<!-- cart number end-->
 						</li>
+						
 
 						<li>
-							<a href="{{ route('customerlogin') }}">
-								<img src="{{ asset('frontend/images/user.png') }}" class="img-fluid">
-							</a>
+							
+								@auth
+								<a href="{{ route('profile') }}">
+									<img src="{{ asset('frontend/images/user.png') }}" class="img-fluid">
+								</a>
+								
+								@else
+								<a href="{{ route('customerlogin') }}">
+									<img src="{{ asset('frontend/images/user.png') }}" class="img-fluid">
+								</a>
+								
+								@endauth
+							
 						</li>
 					</ul>
 				</div>
+
+				<!-- cart dropdown list start -->
+				<div class="cart-item" id="cart-item" onmouseover="showCart()" onmouseout="hideCart()">
+					<table class="table table-striped">
+						<thead>
+						<tbody>
+						  <tr>
+							<td>
+								<img src="{{ asset('frontend/images/12-1-170x185.jpg') }}" width="32px" alt="">
+							</td>
+							<td>
+								<p>product name</p>
+								<p>150 taka</p>
+								<p>3x</p>
+							</td>
+							<td>
+								<button class=""><i class="fas fa-times"></i></button>
+							</td>
+						  </tr>
+						  <tr>
+							<td>
+								<img src="{{ asset('frontend/images/9-1-170x185.jpg') }}" width="32px" alt="">
+							</td>
+							<td>
+								<p>product name</p>
+								<p>150 taka</p>
+								<p>3x</p>
+							</td>
+							<td>
+								<button class=""><i class="fas fa-times"></i></button>
+							</td>
+						  </tr>
+						</tbody>
+					</table>
+					<div class="cart-button">
+						<button class="view-cart">view cart</button>
+						<button class="view-checkout">checkout</button>
+					</div>
+				</div>
+				<!-- cart dropdown list end -->
+
 			</div>
 			<!-- cart wishlist end -->
 
@@ -72,39 +121,10 @@
 	<div class="container">
 		<div class="row">
 
-			<!-- cart wishlist start -->
-			<div class="col-4">
-				<div class="cart-wishlist">
-					<ul>
-						<li>
-							<a href="">
-								<img src="{{ asset('frontend/images/wishlist.png') }}" class="img-fluid">
-							</a>
-						</li>
-
-						<li class="cart">
-							<a href="checkout">
-								<img src="{{ asset('frontend/images/cart.png') }}" class="img-fluid">
-
-								<!-- cart number start -->
-								<div class="cart-number">
-									<p id="carttotal"> 0 </p>
-
-								</div>
-								<!-- cart number end-->
-
-							</a>
-						</li>
-						
-
-					</ul>
-				</div>
-			</div>
-			<!-- cart wishlist end -->
 			
 			<!-- logo start -->
-			<div class="col-4 topbar-mob-img">
-				<a href="http://amru.ssttechbd.com">
+			<div class="col-8 topbar-mob-img">
+				<a href="{{ route('index') }}">
 					<img src="{{ asset('frontend/images/logo.png') }}" class="img-fluid">
 				</a>
 			</div>
@@ -172,8 +192,41 @@
 
 	<!-- show item start -->
 	<div class="show-item p4">
-		<h2>Tk</h2>
-		<p>Bangladesh</p>
+		<table class="table table-striped">
+			<thead>
+			<tbody>
+			  <tr>
+				<td>
+					<img src="{{ asset('frontend/images/12-1-170x185.jpg') }}" width="32px" alt="">
+				</td>
+				<td>
+					<p>product name</p>
+					<p>150 taka</p>
+					<p>3x</p>
+				</td>
+				<td>
+					<button class=""><i class="fas fa-times"></i></button>
+				</td>
+			  </tr>
+			  <tr>
+				<td>
+					<img src="{{ asset('frontend/images/9-1-170x185.jpg') }}" width="32px" alt="">
+				</td>
+				<td>
+					<p>product name</p>
+					<p>150 taka</p>
+					<p>3x</p>
+				</td>
+				<td>
+					<button class=""><i class="fas fa-times"></i></button>
+				</td>
+			  </tr>
+			</tbody>
+		</table>
+		<div class="cart-button">
+			<button class="view-cart">view cart</button>
+			<button class="view-checkout">checkout</button>
+		</div>
 	</div>
 	<!-- show item end -->
 
@@ -207,7 +260,12 @@
 
 			<!-- dollar start -->
 			<div class="col-2 show-item-mob" id="p4">
-				<img src="{{ asset('frontend/images/dollar.png') }}" class="img-fluid">
+				<!-- cart number start -->
+				<div class="cart-number">
+					<p>5</p>
+				</div>
+				<!-- cart number end-->
+				<img src="{{ asset('frontend/images/cart.png') }}" class="img-fluid">
 			</div>
 			<!-- dollar end -->
 

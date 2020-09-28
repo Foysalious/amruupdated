@@ -1,3 +1,47 @@
+//add to cart functionality
+$(document).ready(function(){
+    
+    $("#addToCart").click(function(e){   
+
+      
+        let id = e.target.dataset.id
+        
+   
+        axios.post('/add_to_cart', {id}).then(res => {
+            console.log(res.data)
+        })
+        
+
+        
+        
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var cartPc = document.getElementById('cart-pc');
+var cartItem = document.getElementById('cart-item');
+function showCart(){
+    cartItem.style.display = "block";
+}
+showCart();
+function hideCart(){
+    cartItem.style.display = "none";
+}
+hideCart();
 //latest product
 $('.latest-product-carousel').owlCarousel({
     loop:false,

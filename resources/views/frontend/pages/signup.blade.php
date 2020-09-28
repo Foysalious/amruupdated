@@ -7,6 +7,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 login-box">
+				
 				<div class="row">
 					<div class="col-md-6 offset-md-3">
 						<a href="index.php">
@@ -14,24 +15,25 @@
 						</a>
 					</div>
 				</div>
-				<form>
+				<form action="{{ route('register.customer') }}" method="post">
+					@csrf
 					<div class="form-group">
 						<label>Name</label>
-						<input type="text" class="form-control" name="">
+						<input type="text" class="form-control" name="name">
 					</div>
 
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" class="form-control" name="">
+						<input type="email" class="form-control" name="email">
 					</div>
 
 					<div class="form-group">
 						<label>password</label>
-						<input type="password" class="form-control" name="">
+						<input type="password" class="form-control" name="password">
 					</div>
 
 					<div class="form-group">
-						<button class="btn">sign up</button>
+						<button class="btn" type="submit">sign up</button>
 					</div>
 				</form>
 				<div class="row">

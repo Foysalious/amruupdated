@@ -22,6 +22,10 @@
 					<h2>Khandaker Nahid</h2>
 					<p>Email: Example@gmail.com</p>
 					<p>Phone: 0123456789</p>
+					<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="logout">logout</a>
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+						@csrf
+					</form>
 				</div>
 			</div>
 			<!-- right part end -->

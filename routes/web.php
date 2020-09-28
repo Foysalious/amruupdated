@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Backend\homeImageController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\CartController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 
-Route::group(['prefix'=>'dashboard', 'middleware'=>'can:superadmin'], function(){
+Route::group(['prefix'=>'dashboard', 'middleware'=>['auth','can:superadmin']], function(){
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
     //category route start
@@ -128,6 +129,10 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'can:superadmin'], function()
 |
 */
 Route::post('/register', [RegisterController::class,'registerSuperAdmin'])->name('register.superadmin');
+Route::post('/customer-register', [RegisterController::class,'registerCustomer'])->name('register.customer');
+Route::post('/customer-login', [loginController::class,'loginCustomer'])->name('login.customer');
+
+Route::post('/add_to_cart', [CartController::class, 'add_to_cart']);
 
 
 
@@ -154,11 +159,11 @@ Route::post('/register', [RegisterController::class,'registerSuperAdmin'])->name
 */
 Route::get('/',[FrontendController::class,'index'])->name('index');
 Route::get('/about',[FrontendController::class,'about'])->name('about');
-Route::get('/checkout',[FrontendController::class,'checkout'])->name('checkout');
+Route::get('/checkout',[FrontendController::class,'checkout'])->name('checkout')->middleware('customer_auth');
 Route::get('/contact',[FrontendController::class,'contact'])->name('contact');
 Route::get('/customerlogin',[FrontendController::class,'login'])->name('customerlogin');
-Route::get('/productDetails/{product:slug}',[FrontendController::class,'productDetails'])->name('productDetails');
-Route::get('/profile',[FrontendController::class,'profile'])->name('profile');
+Route::get('/product_details/{product:slug}',[FrontendController::class,'productDetails'])->name('productDetails');
+Route::get('/profile',[FrontendController::class,'profile'])->name('profile')->middleware('customer_auth');
 Route::get('/subcategory/{category:slug}',[FrontendController::class,'subcat'])->name('subcat');
 Route::get('/shop/{subcat:slug}',[FrontendController::class,'shop'])->name('shop');
 Route::get('/signup',[FrontendController::class,'signup'])->name('signup');

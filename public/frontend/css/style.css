@@ -231,7 +231,7 @@ h2 del{
 	color: white;
 }
 .cart-wishlist ul li{
-	display: inline;
+	display: inline-block;
 	margin: 0 15px;
 }
 .cart-wishlist ul{
@@ -273,6 +273,44 @@ h2 del{
 .topbar-logo img{
 	width: 40%;
 }
+.cart-pc{
+	cursor: pointer;
+	position: relative;
+}
+.cart-wishlist ul li{
+	cursor: pointer;
+	position: relative;
+}
+.cart-item{
+	position: absolute;
+    top: 70%;
+    right: 0;
+    padding: 15px;
+    background-color: white;
+    z-index: 3;
+	box-shadow: #e6e5e5 0px 0px 2px 1px;
+	width: max-content;
+	height: max-content;
+	display: none;
+}
+.cart-button{
+	text-align: center;
+}
+.cart-button .view-cart{
+	background: #dd2173;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+}
+.cart-button .view-checkout{
+	background: #5a256c;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+}
+.cart-pc:hover .cart-item{
+	display: block;
+}
 /* topbar end */
 
 
@@ -307,6 +345,12 @@ h2 del{
 }
 .topbar-mob .topbar-bottom-search .form-control{
 	border-radius: unset;
+}
+.show-item-mob{
+	position: relative;
+}
+.topbar-bottom-mob{
+	
 }
 /* topbar-mob end */
 
@@ -544,7 +588,8 @@ h2 del{
     top: 50%;
 	transform: translateY(-50%);
 	right: 0;
-    text-align: left;
+	text-align: left;
+ 	display: inline-table;
 }
 /* navbar drop down end */
 
@@ -771,7 +816,7 @@ h2 del{
 .product-item-01 ul{
 	text-align: right;
 }
-.product-item-01 .product-item-cart a{
+.product-item-01 .product-item-cart button{
 	background: #d92173;
     color: white;
     padding: 10px 15px;

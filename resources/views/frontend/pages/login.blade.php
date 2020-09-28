@@ -9,22 +9,42 @@
 			<div class="col-md-12 login-box">
 				<div class="row">
 					<div class="col-md-6 offset-md-3">
+						@if( session()->has('registrationSuccess') )
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<strong>Congratulation!</strong> {{ session()->get('registrationSuccess') }}
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						@endif
+
+						@if( session()->has('login') )
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							{{ session()->get('login') }}
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						@endif
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
 						<a href="index.php">
 							<img src="{{ asset('frontend/images/logo.png') }}" class="img-fluid">
-							
-						
 						</a>
 					</div>
 				</div>
-				<form>
+				<form action="{{ route('login.customer') }}" method="post">
+					@csrf
 					<div class="form-group">
 						<label>email</label>
-						<input type="email" class="form-control" name="">
+						<input type="email" class="form-control" name="email">
 					</div>
 
 					<div class="form-group">
 						<label>password</label>
-						<input type="password" class="form-control" name="">
+						<input type="password" class="form-control" name="password">
 					</div>
 
 					<div class="form-group">

@@ -38,7 +38,7 @@
                                         <a href="{{ route('profile.edit', Auth::user()->id ) }}">My Profile</a>
                                     </li>
                                     <li>
-                                        <a href="" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>

@@ -94,29 +94,12 @@
 					</div>
 					<!-- description row end -->
 
-					<!-- quantity row start -->
-					<div class="row quantity-row">
-						<div class="col-md-1 col-2">
-							<h2>qty</h2>
-						</div>
-						<div class="col-md-11 col-10 product-detail-count">
-							<div class="nice-number">
-								<label>Kg</label>
-								<input type="number" value="0 kg" style="width: 2ch;">
-							</div>
-						</div>
-					</div>
-					<!-- quantity row end -->
-
 					<!-- add to cart and wishlist row start -->
 					<div class="row product-detail-cart">
 						<div class="col-md-12 product-detail-cart">
 							<ul>
 								<li>
 									<a href="" class="cart">add to cart</a>
-								</li>
-								<li>
-									<a href=""><img src="{{asset('Frontend/images/wishlist.png')}}"></a>
 								</li>
 							</ul>
 							
